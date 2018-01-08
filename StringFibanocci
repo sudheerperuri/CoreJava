@@ -1,0 +1,38 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Test5 {
+
+	public static void main(String[] args) {
+		String input;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter String = " );
+		input = sc.next();
+		
+		String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
+		int sum = 0;
+		int val=0 ;
+		hm.put(alpha.charAt(0), 0);
+		hm.put(alpha.charAt(1), 1);
+		//System.out.println(hm); 
+		
+		for(int i = 2;i < alpha.length();i++){
+			
+			val = hm.get(alpha.charAt(i-1))+hm.get(alpha.charAt(i-2));
+			hm.put(alpha.charAt(i), val);
+		}
+		
+		for(int i = 0;i < input.length();i++){
+			
+			if(hm.containsKey(input.charAt(i))){
+				
+				sum = sum + hm.get(input.charAt(i));
+				
+			}
+		}
+			System.out.println(sum);
+	}
+
+}
