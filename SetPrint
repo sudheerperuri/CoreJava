@@ -39,7 +39,8 @@ public class Test5 {
 			Set<Map.Entry<Character, Integer>> s1 = hm.entrySet();
 			
 			for(Map.Entry<Character, Integer> entry:s1){
-				
+			
+				System.out.println(entry);	
 				System.out.println(entry.getKey()+" = "+entry.getValue());
 				
 			}
