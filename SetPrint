@@ -1,0 +1,48 @@
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class Test5 {
+
+	public static void main(String[] args) {
+		
+		String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		
+		HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
+		int val=0 ;
+		hm.put(alpha.charAt(0), 0);
+		hm.put(alpha.charAt(1), 1);
+ 
+		
+		for(int i = 2;i < alpha.length();i++){
+			
+			val = hm.get(alpha.charAt(i-1))+hm.get(alpha.charAt(i-2));
+			hm.put(alpha.charAt(i), val);
+		}
+		
+					
+			Set<Character> c = hm.keySet();
+			
+			for(char i:c){
+				System.out.println(i);
+			}
+			System.out.println("---------------------------");
+			
+			Collection <Integer> i = hm.values();
+			
+			for(int v:i){
+				System.out.println(v);
+			}
+			System.out.println("---------------------------");
+			
+			Set<Map.Entry<Character, Integer>> s1 = hm.entrySet();
+			
+			for(Map.Entry<Character, Integer> entry:s1){
+				
+				System.out.println(entry.getKey()+" = "+entry.getValue());
+				
+			}
+	}
+
+}
